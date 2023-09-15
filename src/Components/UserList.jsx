@@ -5,10 +5,9 @@ import { GlobalContext } from "../Context/globalContext"
 
 function UserList (){
 
-    const { dentistState}= useContext(GlobalContext)
-    console.log(dentistState)
+    const { dentistState }= useContext(GlobalContext)
     const dentist = dentistState.dentistList
-
+    
     return(
         <>
         <h2>Lista de Dentistas</h2>
