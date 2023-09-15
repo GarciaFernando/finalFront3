@@ -2,15 +2,19 @@
 .container{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     flex-direction: column;
-    background-color: rgb(117, 179, 222);
-    border-radius: 10%;
+    background-color: rgb(94, 188, 147);
+    border-radius: 5%;
+    border: 3px solid rgb(20, 86, 48);
     padding: 10px;
     width: 200px;
     height: 280px;
 }
+
 img{
     width: 150px;
     height: auto;
+    border-radius: 50%;
+    border: 3px solid rgb(20, 86, 48);
 }

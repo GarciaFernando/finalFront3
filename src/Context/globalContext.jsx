@@ -21,7 +21,7 @@ const dentistReducer = (state, action) =>{
     }
 }
 
-const initState = {
+const initState =  JSON.parse(localStorage.getItem("dentist")) || {
     dentistList: [],
     favList: []
 }
@@ -30,9 +30,6 @@ const initState = {
 export function DentistProvider({ children }){
 
     const [dentistState, dentistDispatch] = useReducer( dentistReducer, initState )
-
-
-
 
     
     const url = "https://jsonplaceholder.typicode.com/users"
@@ -51,7 +48,7 @@ export function DentistProvider({ children }){
     },[])
 
     useEffect(() => {
-        localStorage.setItem("dentists", JSON.stringify(dentistState));
+        localStorage.setItem("dentist", JSON.stringify(dentistState));
       }, [dentistState]);
 
     return(

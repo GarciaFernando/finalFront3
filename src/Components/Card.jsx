@@ -1,28 +1,19 @@
+import { useContext } from 'react'
 import styles from '../Components/Card.module.css'
-import { useState } from 'react'
+import { GlobalContext } from "../Context/globalContext"
 
 function Card ({user}){
+    const { dentistState, dentistDispatch } = useContext(GlobalContext)
+    const dispatch = dentistDispatch
+    const isFav = dentistState.favList.find((e)=>e.id==user.id)
 
-    const [isFavorite,setIsFavorite]=useState(false)
-    const handleFav=()=>{
-        setIsFavorite(!isFavorite)
-        if(!isFavorite){
-            addFavorite(user)
+    function handleFav(user){
+
+        if(isFav){
+            dispatch({type:"DEL_FAV",payload:user.id})
         }else{
-            deleteFavorite(user)
+            dispatch({type:"ADD_FAV",payload:user})
         }
-    }
-    const [favs, setFavs] = useState([])
-
-    const addFavorite=(user)=>{
-        setFavs([...favs,user])
-        console.log("Agregando Fav")
-        console.log(user)
-    }
-    const deleteFavorite=(user)=>{
-        const updatedFavs = favs.filter(u=>u.id!==user.id)
-        setFavs(updatedFavs)
-        console.log("Eliminando Fav")
 
     }
 
@@ -32,8 +23,8 @@ function Card ({user}){
             <img src="..\src\assets\doctor-male-default.png"></img>
             <h2>{user.name}</h2>
             <p>{user.username}</p>
-            <button onClick={handleFav}>
-                {isFavorite? 'Quitar de fav':'Agregar a Fav'}
+            <button onClick={()=>handleFav(user)}>
+                {isFav? 'Quitar de fav':'Agregar a Fav'}
             </button>
             
         </div>

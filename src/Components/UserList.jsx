@@ -5,8 +5,10 @@ import { GlobalContext } from "../Context/globalContext"
 
 function UserList (){
 
-    const dentist = useContext(GlobalContext)
-    console.log(dentist)
+    const { dentistState}= useContext(GlobalContext)
+    console.log(dentistState)
+    const dentist = dentistState.dentistList
+
     return(
         <>
         <h2>Lista de Dentistas</h2>
@@ -14,12 +16,6 @@ function UserList (){
             {
                 dentist.map(user=>(<Card key={user.id} user={user}/>))
             }
-        </div>
-        <div className="Favoritos">
-            
-                <h1>Aca van a ir los Favoritos</h1>
-                
-            
         </div>
         </>
     )
