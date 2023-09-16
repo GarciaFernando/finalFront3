@@ -1,0 +1,36 @@
+.messageContainer {
+    position: fixed;
+    bottom:50px; /* Posición vertical desde la parte superior */
+    left: 50%; /* Posición horizontal desde la derecha */
+    transform: translateX(-50%);
+    color: #fff; /* Color del texto del cartel de error */
+    padding: 20px; /* Espaciado interno */
+    border-radius: 5px; /* Borde redondeado */
+
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Sombra */
+    z-index: 9999; /* Valor alto para superponerse a otros elementos */
+
+  }
+
+  .success{
+    border:solid green 2px;
+    background-color: aquamarine;
+  }
+
+  .successMessage{
+    margin: 0;
+    font-size: 16px;
+    color: green;
+  }
+
+  .error{
+    border: solid red 2px;
+    background-color: #e99c9c; /* Color de fondo del cartel de error */
+  }
+
+  .errorMessage {
+    margin: 0; /* Elimina el margen predeterminado */
+    font-size: 16px; /* Tamaño de fuente */
+    color: red;
+
+  }

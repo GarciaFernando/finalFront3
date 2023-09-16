@@ -1,4 +1,25 @@
-*{
-    margin: 0;
-    box-sizing: border-box;
+body{
+  background-color: white;
+}
+
+.detail-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.detail-table {
+  width: 100%;
+  max-width: 600px;
+  border-collapse: collapse;
+  margin-top: 20px;
+
+}
+
+.darkTheme{
+  background-color: rgb(48, 54, 60);
+  color: white;
 }

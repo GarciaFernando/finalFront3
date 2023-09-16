@@ -1,23 +1,23 @@
-import { useContext } from "react"
-import Card from './Card'
-import styles from '../Components/UserList.module.css'
-import { GlobalContext } from "../Context/globalContext"
+import { useContext } from "react";
+import Card from "./Card";
+import styles from "../Components/UserList.module.css";
+import { GlobalContext } from "../Context/globalContext";
+import { useDarkMode } from "../Context/styleContext";
 
-function UserList (){
+function UserList() {
+  const { dentistState } = useContext(GlobalContext);
+  const dentist = dentistState.dentistList;
+  const { isDarkMode } = useDarkMode();
 
-    const { dentistState }= useContext(GlobalContext)
-    const dentist = dentistState.dentistList
-    
-    return(
-        <>
-        <h2>Lista de Dentistas</h2>
-        <div className={styles.container}>
-            {
-                dentist.map(user=>(<Card key={user.id} user={user}/>))
-            }
-        </div>
-        </>
-    )
+  return (
+    <>
+      <div className={`${styles.container} ${isDarkMode ? "darkTheme" : ""}`}>
+        {dentist.map((user) => (
+          <Card key={user.id} user={user} />
+        ))}
+      </div>
+    </>
+  );
 }
 
-export default UserList
+export default UserList;

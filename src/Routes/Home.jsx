@@ -1,13 +1,15 @@
-import UserList from '../Components/UserList'
-import Navbar from '../Components/Navbar'
+import UserList from "../Components/UserList";
+import { useDarkMode } from "../Context/styleContext";
 
-function Home(){
-    return(
-        <>
-        <Navbar/>
-        <UserList/>
-        </>
-    )
+function Home() {
+  const { isDarkMode } = useDarkMode();
+
+  return (
+    <>
+      <h1 className={isDarkMode ? "darkTheme" : ""}>Lista de Dentistas</h1>
+      <UserList />
+    </>
+  );
 }
 
-export default Home
+export default Home;

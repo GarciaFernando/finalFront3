@@ -1,10 +1,14 @@
-import Form from '../Components/Form'
-function Contact(){
+import Form from "../Components/Form";
+function Contact() {
+  function backButton() {
+    window.history.back();
+  }
 
-    return(
-        <>
-        <Form/>
-        </>
-    )
+  return (
+    <>
+      <button onClick={backButton}>Back</button>
+      <Form />
+    </>
+  );
 }
-export default Contact
+export default Contact;
